@@ -1,0 +1,1 @@
+ALTER TABLE Orders ADD COLUMN product_name VARCHAR(45);
