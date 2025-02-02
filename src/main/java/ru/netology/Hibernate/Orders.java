@@ -26,6 +26,10 @@ public class Orders {
     private int amount;
 
     @ManyToOne
-    @JoinColumn(name = "personId", nullable=false)
+    @JoinColumns({
+            @JoinColumn(name = "person_name", referencedColumnName = "name", nullable = false),
+            @JoinColumn(name = "person_surname", referencedColumnName = "surname", nullable = false),
+            @JoinColumn(name = "person_age", referencedColumnName = "age", nullable = false)
+    })
     private Person person;
 }
