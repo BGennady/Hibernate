@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "PERSONS", schema = "hibernete")
+@Table(name = "PERSONS", schema = "hibernate")
 
 public class Person {
 
@@ -20,11 +20,11 @@ public class Person {
     private PersonID personID;
 
     @Column(nullable = false)
-    private String phoneNumber;
+    private String phone_number;
 
     @Column(nullable = false)
-    private String cityOfLiving;
+    private String city_of_living;
 
     @OneToMany (mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Orders> orders;
+    private List<Order> orders;
 }

@@ -3,6 +3,8 @@ package ru.netology.Hibernate;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10,17 +12,17 @@ import lombok.*;
 @Setter
 @ToString
 @Entity
-@Table(name = "ORDERS", schema = "hibernete")
-public class Orders {
+@Table(name = "ORDERS", schema = "hibernate")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     @Column(nullable = false)
-    private String data;
+    private LocalDate date;
 
     @Column(nullable = false)
-    private int numOrder;
+    private int num_order;
 
     @Column(nullable = false)
     private int amount;
