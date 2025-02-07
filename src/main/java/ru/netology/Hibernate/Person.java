@@ -20,10 +20,10 @@ public class Person {
     private PersonID personID;
 
     @Column(nullable = false)
-    private String phone_number;
+    private String phoneNumber;
 
     @Column(nullable = false)
-    private String city_of_living;
+    private String cityOfLiving;
 
     @OneToMany (mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders;

@@ -22,7 +22,7 @@ public class Order {
     private LocalDate date;
 
     @Column(nullable = false)
-    private int num_order;
+    private int numOrder;
 
     @Column(nullable = false)
     private int amount;
