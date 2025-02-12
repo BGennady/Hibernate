@@ -1,48 +1,22 @@
 package ru.netology.Hibernate;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
-import jakarta.transaction.Transactional;
-import lombok.Builder;
-import lombok.Locked;
-import org.hibernate.internal.util.collections.ReadOnlyMap;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public class PersonRepository {
-    @PersistenceContext
-    private EntityManager entityManager;
+public interface PersonRepository extends CrudRepository<Person, PersonID> {
 
-    @Transactional
-    public List<Person> getPersonsByCity(String city) {
+    @Query("SELECT p FROM Person p WHERE p.cityOfLiving  =:city")
+    List<Person> findPersonCityOfLiving(@Param("city") String city);
 
-        //тело запроса
-        String jpql = "SELECT p FROM Person p WHERE  p.cityOfLiving = :city";
-        return entityManager.createQuery(jpql, Person.class)
-                //подставляю city из метода в city запроса
-                .setParameter("city", city)
-                //возращает список
-                .getResultList();
+    @Query("SELECT p FROM Person p WHERE p.personID.age <:age ORDER BY p.personID.age ASC")
+    List<Person> findByPersonID_AgeLessThanOrderByPersonID_AgeAsc(@Param("age") int age);
 
-
-//        //объект для написания динамических и гибких SQL запросов в Hibernet
-//        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-//        //объект описывает структуру запроса в Hibernet
-//        CriteriaQuery<Person> cr = criteriaBuilder.createQuery(Person.class);
-//        //корень запроса - указывает, из какой таблицы (сущности) выбираем данные
-//        Root<Person> root = cr.from(Person.class);
-//        //условие отбора (Predicate) - cityOfLiving должен совпадать с переданным значением города
-//        Predicate condition = criteriaBuilder.equal(root.get("cityOfLiving"), city);
-//        //добавляю условие CriteriaQuery
-//        cr.where(condition);
-//        //запрос
-//        List<Person> result = entityManager.createQuery(cr).getResultList();
-//        return result;
-    }
+    @Query("SELECT p FROM Person p WHERE p.personID.name =:name AND p.personID.surname =:surname")
+    Optional<Person> findByPersonID_NameAndPersonID_Surname(@Param("name") String name, @Param("surname") String surname);
 }
