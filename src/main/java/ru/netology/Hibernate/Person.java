@@ -1,5 +1,6 @@
 package ru.netology.Hibernate;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,7 @@ public class Person {
     @Column(nullable = false)
     private String cityOfLiving;
 
+    @JsonManagedReference
     @OneToMany (mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders;
 
