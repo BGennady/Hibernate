@@ -18,4 +18,3 @@ public class HibernateApplication implements CommandLineRunner {
 
 	}
 }
-

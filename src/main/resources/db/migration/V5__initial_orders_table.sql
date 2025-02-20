@@ -1,3 +1,4 @@
+
 INSERT INTO hibernate.ORDERS (person_name, person_surname, person_age, date, num_order, product_name, amount)
 VALUES
    ('Alexey', 'Ivanov', 30, '2025-01-15', 43, 'Laptop', 100000),

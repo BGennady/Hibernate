@@ -1,3 +1,4 @@
+
 INSERT INTO hibernate.PERSONS (name, surname, age, phone_number, city_of_living)
 VALUES
 ('Alexey', 'Ivanov', 30, '1234567890', 'Moscow'),
