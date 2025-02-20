@@ -5,18 +5,14 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "ORDERS", schema = "hibernate")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(nullable = false)
     private LocalDate date;

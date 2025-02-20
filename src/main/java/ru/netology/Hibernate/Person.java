@@ -5,15 +5,10 @@ import lombok.*;
 
 import java.util.List;
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "PERSONS", schema = "hibernate")
-
 public class Person {
 
     @EmbeddedId
@@ -27,4 +22,16 @@ public class Person {
 
     @OneToMany (mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders;
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + personID.getName() + '\'' +
+                ", surname='" + personID.getSurname() + '\'' +
+                ", age=" + personID.getAge() +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", cityOfLiving='" + cityOfLiving + '\'' +
+                '}';
+    }
+
 }

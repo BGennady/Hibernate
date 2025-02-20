@@ -16,8 +16,19 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
+    // обрабатывает GET-запросы по адресу /persons/by-city
     @GetMapping("/by-city")
+    // метод принимает параметр city из URL и возвращает список Person
     public List<Person> findPersonsByCity(@RequestParam String city) {
-        return personRepository.getPersonsByCity(city);
+
+        // сохраняем результат запроса в переменную
+        List<Person> persons = personRepository.getPersonsByCity(city);
+        System.out.println("Found persons for city " + city + ": " + persons);
+
+        // выводим результат в лог для отладки
+        System.out.println("Found persons for city " + city + ": " + persons);
+
+        // возвращаем результат
+        return persons;
     }
 }

@@ -2,14 +2,7 @@ package ru.netology.Hibernate;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
-import lombok.Builder;
-import lombok.Locked;
-import org.hibernate.internal.util.collections.ReadOnlyMap;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

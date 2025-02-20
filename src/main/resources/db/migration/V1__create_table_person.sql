@@ -1,3 +1,4 @@
+
 CREATE TABLE hibernate.PERSONS (
 
     name VARCHAR(25) NOT NULL,
