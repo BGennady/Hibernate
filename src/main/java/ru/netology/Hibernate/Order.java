@@ -1,5 +1,6 @@
 package ru.netology.Hibernate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,6 +28,7 @@ public class Order {
     @Column(nullable = false)
     private int amount;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumns({
             @JoinColumn(name = "person_name", referencedColumnName = "name", nullable = false),
