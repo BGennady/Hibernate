@@ -1,0 +1,6 @@
+
+DO $$ BEGIN
+    IF NOT EXISTS (SELECT 1 FROM pg_catalog.pg_namespace WHERE nspname = 'hibernate') THEN
+        CREATE SCHEMA hibernate;
+    END IF;
+END $$;

@@ -1,1 +1,2 @@
+
 ALTER TABLE hibernate.ORDERS ADD COLUMN product_name VARCHAR(45);

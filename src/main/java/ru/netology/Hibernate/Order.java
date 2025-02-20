@@ -1,16 +1,13 @@
 package ru.netology.Hibernate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "ORDERS", schema = "hibernate")
 public class Order {
@@ -27,6 +24,7 @@ public class Order {
     @Column(nullable = false)
     private int amount;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumns({
             @JoinColumn(name = "person_name", referencedColumnName = "name", nullable = false),

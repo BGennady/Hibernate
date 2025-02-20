@@ -1,16 +1,13 @@
 package ru.netology.Hibernate;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "PERSONS", schema = "hibernate")
 
@@ -25,6 +22,17 @@ public class Person {
     @Column(nullable = false)
     private String cityOfLiving;
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "personID=" + personID +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", cityOfLiving='" + cityOfLiving + '\'' +
+                ", orders=" + orders +
+                '}';
+    }
+
+    @JsonManagedReference
     @OneToMany (mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders;
 }
