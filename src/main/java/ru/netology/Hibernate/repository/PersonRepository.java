@@ -1,9 +1,11 @@
-package ru.netology.Hibernate;
+package ru.netology.Hibernate.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import ru.netology.Hibernate.model.Person;
+import ru.netology.Hibernate.model.PersonID;
 
 import java.util.List;
 import java.util.Optional;

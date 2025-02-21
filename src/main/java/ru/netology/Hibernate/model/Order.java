@@ -1,4 +1,4 @@
-package ru.netology.Hibernate;
+package ru.netology.Hibernate.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
