@@ -1,9 +1,11 @@
-package ru.netology.Hibernate;
+package ru.netology.Hibernate.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import ru.netology.Hibernate.repository.PersonRepository;
+import ru.netology.Hibernate.model.Person;
 
 import java.util.List;
 

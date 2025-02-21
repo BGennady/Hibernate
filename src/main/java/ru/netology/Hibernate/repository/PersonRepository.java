@@ -1,9 +1,10 @@
-package ru.netology.Hibernate;
+package ru.netology.Hibernate.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
+import ru.netology.Hibernate.model.Person;
 
 import java.util.List;
 
