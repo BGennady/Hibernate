@@ -1,4 +1,4 @@
-package ru.netology.Hibernate;
+package ru.netology.Hibernate.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
